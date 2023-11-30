@@ -6,4 +6,9 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email) }
     xit {}
   end 
+
+  describe 'relationships' do 
+    it { should have_many(:user_meetings) }
+    it { should have_many(:meetings).through(:user_meetings) }
+  end
 end
