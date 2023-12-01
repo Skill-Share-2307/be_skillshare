@@ -23,6 +23,7 @@ RSpec.describe 'Users API', type: :request do
       expect(user_attributes).to have_key(:last_name)
       expect(user_attributes).to have_key(:email)
       expect(user_attributes).to have_key(:address)
+      expect(user_attributes).to have_key(:about)
       expect(user_attributes).to have_key(:lat)
       expect(user_attributes).to have_key(:lon)
       expect(user_attributes).to have_key(:is_remote)
