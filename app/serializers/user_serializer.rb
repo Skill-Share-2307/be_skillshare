@@ -1,7 +1,7 @@
 class UserSerializer
 include JSONAPI::Serializer
 
-  attributes :first_name, :last_name, :email, :address, :lat, :lon, :is_remote, :skills, :meetings
+  attributes :first_name, :last_name, :email, :address, :about, :lat, :lon, :is_remote, :skills, :meetings
 
   attribute :skills do |user|
     user.skills.map do |skill|
