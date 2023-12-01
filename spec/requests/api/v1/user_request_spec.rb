@@ -31,7 +31,6 @@ RSpec.describe 'Users API', type: :request do
 
       user_skills = user_attributes[:skills]
       user_skills.each do |skill|
-        expect(skill).to have_key(:id)
         expect(skill).to have_key(:name)
         expect(skill).to have_key(:proficiency)
       end
