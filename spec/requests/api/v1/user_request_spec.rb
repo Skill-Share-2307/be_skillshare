@@ -4,6 +4,8 @@ RSpec.describe 'Users API', type: :request do
   describe 'GET /api/v1/users/:user_id' do
     it 'returns user information' do
       user = create(:user)
+      user_2 = create(:user)
+      meeting = create(:meeting, users: [user, user_2])
       get "/api/v1/users/#{user.id}"
       expect(response).to have_http_status(200)
 
@@ -24,6 +26,25 @@ RSpec.describe 'Users API', type: :request do
       expect(user_attributes).to have_key(:lat)
       expect(user_attributes).to have_key(:lon)
       expect(user_attributes).to have_key(:is_remote)
+      expect(user_attributes).to have_key(:skills)
+      expect(user_attributes).to have_key(:meetings)
+
+      user_skills = user_attributes[:skills]
+      user_skills.each do |skill|
+        expect(skill).to have_key(:id)
+        expect(skill).to have_key(:name)
+        expect(skill).to have_key(:proficiency)
+      end
+
+      user_meetings = user_attributes[:meetings]
+      user_meetings.each do |meeting|
+        expect(meeting).to have_key(:id)
+        expect(meeting).to have_key(:date)
+        expect(meeting).to have_key(:start_time)
+        expect(meeting).to have_key(:end_time)
+        expect(meeting).to have_key(:is_accepted)
+        expect(meeting).to have_key(:purpose)
+      end
     end
 
     it 'returns an error message if a user is not found' do 
