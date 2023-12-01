@@ -6,7 +6,6 @@ include JSONAPI::Serializer
   attribute :skills do |user|
     user.skills.map do |skill|
       {
-        id: skill.id,
         name: skill.name,
         proficiency: skill.proficiency
       }
