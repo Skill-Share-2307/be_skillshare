@@ -67,7 +67,7 @@ RSpec.describe "creae user endpoint" do
       }
 
       post "/api/v1/users", params: user_info
-      # require 'pry';binding.pry
+
       expect(response).to_not be_successful
       expect(response.status).to eq(422)
       
@@ -75,6 +75,30 @@ RSpec.describe "creae user endpoint" do
 
       expect(response_body).to have_key(:error)
       expect(response_body[:error]).to eq("Email has already been taken")
+
+      expect(User.count).to eq(1)
+    end
+
+    it "returns an erro if an attribute is not given - any attribute" do 
+      user_info = {
+          "first_name": "",
+          "last_name": "Aube",
+          "email": "taken@gmail.com",
+          "address": "12345 street st.",
+          "lat": "1.12",
+          "lon": "1.12",
+          "is_remote": "true"
+      }
+
+      post "/api/v1/users", params: user_info
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(422)
+      
+      response_body = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response_body).to have_key(:error)
+      expect(response_body[:error]).to eq("First name can't be blank")
     end
   end
 end
