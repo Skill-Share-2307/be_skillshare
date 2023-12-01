@@ -7,4 +7,20 @@ class Api::V1::UsersController < ApplicationController
       render json: { error: 'User not found.' }, status: :not_found
     end
   end
+
+  def create
+    user = User.create(user_params)
+    if user.save
+      render json: UserSerializer.new(user), status: :created
+    else
+      render json: {error: user.errors.full_messages.to_sentence, status: 422}, status: :unprocessable_entity
+    end 
+  end
+
+
+  private
+
+  def user_params
+    params.permit(:first_name, :last_name, :email, :address, :lat, :lon, :is_remote)
+  end
 end
