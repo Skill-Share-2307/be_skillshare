@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users API', type: :request do
   describe 'GET /api/v1/users/:user_id' do
     it 'returns user information' do
-      user = create(:user, is_remote: true)
+      user = create(:user)
       get "/api/v1/users/#{user.id}"
       expect(response).to have_http_status(200)
 
