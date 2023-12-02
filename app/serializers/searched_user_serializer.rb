@@ -3,6 +3,7 @@ include JSONAPI::Serializer
 
   attributes :first_name, :last_name, :is_remote, :skills
 
+  #could potentially have a parent class to inherit from to DRY up code
   attribute :skills do |user|
     user.skills.map do |skill|
       {
