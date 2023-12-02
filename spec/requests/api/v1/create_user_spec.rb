@@ -8,8 +8,11 @@ RSpec.describe "create user endpoint", type: :request do
         user_info = {
           "first_name": "Antoine",
           "last_name": "Aube",
-          "email": "yetanother@gmail.com",
-          "address": "12345 street st.",
+          "email": "taken@gmail.com",
+          "street": "12345 street st.",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "zipcode": "12345",
           "lat": "1.12",
           "lon": "1.12",
           "is_remote": "true"
@@ -38,8 +41,7 @@ RSpec.describe "create user endpoint", type: :request do
       expect(attributes[:last_name]).to eq(user.last_name)
       expect(attributes).to have_key(:email)
       expect(attributes[:email]).to eq(user.email)
-      expect(attributes).to have_key(:address)  
-      expect(attributes[:address]).to eq(user.address)  
+      expect(attributes).to have_key(:address)    
       expect(attributes).to have_key(:lat)
       expect(attributes[:lat]).to eq(user.lat)
       expect(attributes).to have_key(:lon)
@@ -57,13 +59,16 @@ RSpec.describe "create user endpoint", type: :request do
       expect(User.count).to eq(1)
 
       user_info = {
-          "first_name": "Antoine",
-          "last_name": "Aube",
-          "email": "taken@gmail.com",
-          "address": "12345 street st.",
-          "lat": "1.12",
-          "lon": "1.12",
-          "is_remote": "true"
+        "first_name": "Antoine",
+        "last_name": "Aube",
+        "email": "taken@gmail.com",
+        "street": "12345 street st.",
+        "city": "Salt Lake City",
+        "state": "UT",
+        "zipcode": "12345",
+        "lat": "1.12",
+        "lon": "1.12",
+        "is_remote": "true"
       }
 
       post "/api/v1/users", params: user_info
@@ -84,7 +89,10 @@ RSpec.describe "create user endpoint", type: :request do
           "first_name": "",
           "last_name": "Aube",
           "email": "taken@gmail.com",
-          "address": "12345 street st.",
+          "street": "12345 street st.",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "zipcode": "12345",
           "lat": "1.12",
           "lon": "1.12",
           "is_remote": "true"
