@@ -24,4 +24,13 @@ include JSONAPI::Serializer
       }
     end
   end
+
+  attribute :address do |user|
+    {
+      street: user.street,
+      city: user.city,
+      state: user.state,
+      zipcode: user.zipcode
+    }
+  end
 end
