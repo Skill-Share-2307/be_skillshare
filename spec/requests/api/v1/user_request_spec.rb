@@ -4,6 +4,7 @@ RSpec.describe 'Users API', type: :request do
   describe 'GET /api/v1/users/:user_id' do
     it 'returns user information' do
       user = create(:user)
+      require 'pry';binding.pry
       user_2 = create(:user)
       meeting = create(:meeting, users: [user, user_2])
       get "/api/v1/users/#{user.id}"
