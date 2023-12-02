@@ -3,7 +3,10 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     email { Faker::Internet.email }
-    address { Faker::Address.full_address }
+    street { Faker::Address.street_address }
+    city { Faker::Address.city }
+    state { Faker::Address.state }
+    zipcode {Faker::Address.zip_code}
     lat { Faker::Address.latitude }
     lon { Faker::Address.longitude }
     is_remote { Faker::Boolean.boolean }
