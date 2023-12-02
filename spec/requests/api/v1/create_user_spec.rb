@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "creae user endpoint" do
+RSpec.describe "create user endpoint", type: :request do
   describe "when I send a post request to '/api/v1/users' with a body" do 
     it "creates a user and send back all the user's data" do 
       expect(User.count).to eq(0)
