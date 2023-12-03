@@ -8,7 +8,7 @@ class Meeting < ApplicationRecord
     user_meetings.find_by(is_requestor: false).user_id
   end
 
-  def is_host
-    user_meetings.find_by(is_requestor: true).present?
+  def host_id
+    user_meetings.find_by(is_requestor: true).user_id
   end
 end

@@ -28,6 +28,7 @@ RSpec.describe 'Meetings API', type: :request do
       expect(data).to have_key(:data)
 
       meeting_data = data[:data]
+      require 'pry';binding.pry
       expect(meeting_data).to be_a(Hash)
       expect(meeting_data).to have_key(:id)
       expect(meeting_data[:id]).to eq(meeting.id.to_s)
@@ -40,7 +41,7 @@ RSpec.describe 'Meetings API', type: :request do
       expect(meeting_attributes).to have_key(:date)
       expect(meeting_attributes).to have_key(:start_time)
       expect(meeting_attributes).to have_key(:end_time)
-      expect(meeting_attributes).to have_key(:is_host)
+      expect(meeting_attributes).to have_key(:host_id)
     end
 
     it 'returns an error if a partner is not found' do
