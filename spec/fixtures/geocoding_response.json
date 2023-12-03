@@ -1,0 +1,116 @@
+{
+  "results": [
+      {
+          "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+          },
+          "country": "United States",
+          "country_code": "us",
+          "state": "Colorado",
+          "county": "El Paso County",
+          "city": "Colorado Springs",
+          "postcode": "80923",
+          "street": "Dublin Boulevard",
+          "housenumber": "5935",
+          "lon": -104.71769185732973,
+          "lat": 38.92589009854805,
+          "state_code": "CO",
+          "formatted": "5935 Dublin Boulevard, Colorado Springs, CO 80923, United States of America",
+          "address_line1": "5935 Dublin Boulevard",
+          "address_line2": "Colorado Springs, CO 80923, United States of America",
+          "timezone": {
+              "name": "America/Denver",
+              "offset_STD": "-07:00",
+              "offset_STD_seconds": -25200,
+              "offset_DST": "-06:00",
+              "offset_DST_seconds": -21600,
+              "abbreviation_STD": "MST",
+              "abbreviation_DST": "MDT"
+          },
+          "plus_code": "85CQW7GJ+9W",
+          "plus_code_short": "W7GJ+9W Colorado Springs, El Paso County, United States",
+          "result_type": "building",
+          "rank": {
+              "importance": -0.8299999999999998,
+              "popularity": 2.3951318661774366,
+              "confidence": 1,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "match_type": "full_match"
+          },
+          "place_id": "518cf5d3a9ee2d5ac059207a169183764340f00102f90185c25f0200000000c00203",
+          "bbox": {
+              "lon1": -104.71774185733,
+              "lat1": 38.925840098548,
+              "lon2": -104.71764185733,
+              "lat2": 38.925940098548
+          }
+      },
+      {
+          "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+          },
+          "name": "Buff City Soap",
+          "country": "United States",
+          "country_code": "us",
+          "state": "Colorado",
+          "county": "El Paso County",
+          "city": "Colorado Springs",
+          "postcode": "80923",
+          "street": "Dublin Boulevard",
+          "housenumber": "5935",
+          "lon": -104.71840724547904,
+          "lat": 38.923344549999996,
+          "state_code": "CO",
+          "formatted": "Buff City Soap, 5935 Dublin Boulevard, Colorado Springs, CO 80923, United States of America",
+          "address_line1": "Buff City Soap",
+          "address_line2": "5935 Dublin Boulevard, Colorado Springs, CO 80923, United States of America",
+          "category": "commercial.health_and_beauty;service.beauty.spa",
+          "timezone": {
+              "name": "America/Denver",
+              "offset_STD": "-07:00",
+              "offset_STD_seconds": -25200,
+              "offset_DST": "-06:00",
+              "offset_DST_seconds": -21600,
+              "abbreviation_STD": "MST",
+              "abbreviation_DST": "MDT"
+          },
+          "plus_code": "85CQW7FJ+8J",
+          "plus_code_short": "W7FJ+8J Colorado Springs, El Paso County, United States",
+          "result_type": "amenity",
+          "rank": {
+              "importance": 0.32001,
+              "popularity": 2.4552058864146353,
+              "confidence": 1,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "match_type": "inner_part"
+          },
+          "place_id": "51af226262fa2d5ac0594c987a2730764340f00102f901226fd72e00000000c0020192030e42756666204369747920536f6170",
+          "bbox": {
+              "lon1": -104.7185327,
+              "lat1": 38.9232999,
+              "lon2": -104.718281,
+              "lat2": 38.9233892
+          }
+      }
+  ],
+  "query": {
+      "text": "5935 Dublin Blvd #100, Colorado Springs, CO 80923",
+      "parsed": {
+          "unit": "#100",
+          "housenumber": "5935",
+          "street": "dublin blvd",
+          "postcode": "80923",
+          "city": "colorado springs",
+          "state": "co",
+          "expected_type": "building"
+      }
+  }
+}
