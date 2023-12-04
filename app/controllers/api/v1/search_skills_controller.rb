@@ -6,7 +6,7 @@ class Api::V1::SearchSkillsController < ApplicationController
     if !@users.empty?
       render json: SearchedUserSerializer.new(@users), status: 200
     elsif searched_users.empty?
-      render json: {error: "No users found with that skill."}, status: 200
+      render json: {data: []}, status: 200
     end 
   end
 
