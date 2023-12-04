@@ -20,10 +20,34 @@ RSpec.describe 'Meetings API', type: :request do
 
       data = JSON.parse(response.body, symbolize_names: true)
       expect(data).to have_key(:success)
-      expect(data[:success]).to eq('Meeting updated successfully.')
+      expect(data[:success]).to eq('Meeting updated successfully. Meeting is accepted.')
 
       updated_meeting = Meeting.find(meeting.id)
       expect(updated_meeting.is_accepted).to eq(true)
+    end
+
+    it 'updates the meeting when is_approved is false' do
+      user = create(:user)
+      partner = create(:user)
+      meeting = create(:meeting, is_accepted: true)
+      UserMeeting.create(user: user, meeting: meeting, is_requestor: true)
+      UserMeeting.create(user: partner, meeting: meeting, is_requestor: false)
+
+      expect(Meeting.count).to eq(1)
+
+      update_params = { is_approved: 'false' }
+
+      put "/api/v1/meetings/#{meeting.id}", params: update_params
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      expect(data).to have_key(:success)
+      expect(data[:success]).to eq('Meeting updated successfully. Meeting is not accepted.')
+
+      updated_meeting = Meeting.find(meeting.id)
+      expect(updated_meeting.is_accepted).to eq(false)
     end
 
     it 'returns an error if meeting is not found' do
