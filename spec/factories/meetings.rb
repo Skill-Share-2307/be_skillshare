@@ -4,6 +4,6 @@ FactoryBot.define do
     start_time { Faker::Time.forward(days: 10, period: :morning) }
     end_time { Faker::Time.forward(days: 10, period: :afternoon) }
     is_accepted { Faker::Boolean.boolean }
-    purpose { Meeting.purposes.keys.sample }
+    purpose { Faker::Lorem.sentence }
   end
 end
