@@ -21,3 +21,4 @@ ethanskill2 = Skill.create(name: "Rails", proficiency: 5, user_id: user2.id)
 ethanskill3 = Skill.create(name: "knitting", proficiency: 1, user_id: user2.id) 
 
 tylerskill1 = Skill.create(name: "Ruby", proficiency: 5, user_id: user3.id)
+tylerskill2 = Skill.create(name: "Piano", proficiency: 5, user_id: user3.id)
