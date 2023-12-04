@@ -15,6 +15,7 @@ RSpec.describe "Search skills endpoint", type: :request do
     @ethanskill3 = Skill.create(name: "knitting", proficiency: 1, user_id: @user2.id) 
 
     @tylerskill1 = Skill.create(name: "Ruby", proficiency: 5, user_id: @user3.id)
+    @tylerskill1 = Skill.create(name: "Piano", proficiency: 3, user_id: @user3.id)
   end
 
   describe "when I sent a query to '/api/v1/search_skills' " do 
@@ -37,6 +38,17 @@ RSpec.describe "Search skills endpoint", type: :request do
 
       user1_skills = steve[:attributes][:skills]
       expect(user1_skills.count).to eq(3)
+    end
+
+    it "returns all the users with given skills if provided with a query that has multiple skills" do 
+      get "/api/v1/search_skills", params: {query: "knitting, piano"}
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response_body[:data].count).to eq(3)
     end
   end
 
