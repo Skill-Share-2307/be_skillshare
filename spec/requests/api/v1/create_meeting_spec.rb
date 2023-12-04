@@ -39,9 +39,10 @@ RSpec.describe 'Meetings API', type: :request do
       expect(meeting_attributes[:partner_id]).to eq(partner.id)
       expect(meeting_attributes).to have_key(:date)
       expect(meeting_attributes).to have_key(:start_time)
+      expect(meeting_attributes).to have_key(:is_accepted)
       expect(meeting_attributes).to have_key(:end_time)
-      expect(meeting_attributes).to have_key(:host_id)
-      expect(meeting_attributes[:host_id]).to eq(user.id)
+      expect(meeting_attributes).to have_key(:user_id)
+      expect(meeting_attributes[:user_id]).to eq(user.id)
     end
 
     it 'returns an error if a partner is not found' do
