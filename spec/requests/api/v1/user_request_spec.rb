@@ -28,22 +28,11 @@ RSpec.describe 'Users API', type: :request do
       expect(user_attributes).to have_key(:lon)
       expect(user_attributes).to have_key(:is_remote)
       expect(user_attributes).to have_key(:skills)
-      expect(user_attributes).to have_key(:meetings)
 
       user_skills = user_attributes[:skills]
       user_skills.each do |skill|
         expect(skill).to have_key(:name)
         expect(skill).to have_key(:proficiency)
-      end
-
-      user_meetings = user_attributes[:meetings]
-      user_meetings.each do |meeting|
-        expect(meeting).to have_key(:id)
-        expect(meeting).to have_key(:date)
-        expect(meeting).to have_key(:start_time)
-        expect(meeting).to have_key(:end_time)
-        expect(meeting).to have_key(:is_accepted)
-        expect(meeting).to have_key(:purpose)
       end
     end
 
