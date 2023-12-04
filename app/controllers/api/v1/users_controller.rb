@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render json: UserSerializer.new(user), status: :created
     else
-      render json: {error: user.errors.full_messages.to_sentence, status: 422}, status: :unprocessable_entity
+      render json: {error: user.errors.full_messages.to_sentence}, status: :unprocessable_entity
     end 
   end
 
@@ -21,6 +21,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:first_name, :last_name, :email, :lat, :lon, :is_remote, :about, :city, :state, :zipcode, :street)
+    params.permit(:first_name, :last_name, :email, :is_remote, :about, :city, :state, :zipcode, :street)
   end
 end
