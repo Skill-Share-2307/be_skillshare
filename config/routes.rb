@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:show, :create]
       resources :search_skills, only: [:index]
-      resources :meetings, only: [:create]
+      resources :meetings, only: [:create, :update]
     end
   end
 end
