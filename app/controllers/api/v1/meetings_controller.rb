@@ -1,6 +1,7 @@
 class Api::V1::MeetingsController < ApplicationController
   before_action :set_users, only: [:create]
   before_action :existing_partner_check, only: [:create]
+  before_action :set_meeting, only: [:update, :destroy]
 
   def create
     user = @users[:user]
@@ -18,20 +19,20 @@ class Api::V1::MeetingsController < ApplicationController
   end
 
   def update
-    meeting = Meeting.find_by(id: params[:id])
-
-    if meeting.nil?
+    if @meeting.nil?
       render json: { error: 'Meeting not found.' }, status: :not_found
     else
-      if params[:is_approved] == "true"
-        meeting.update(is_accepted: true)
-        render json: { success: 'Meeting updated successfully. Meeting is accepted.' }
-      elsif params[:is_approved] == "false"
-        meeting.update(is_accepted: false)
-        render json: { success: 'Meeting updated successfully. Meeting is not accepted.' }
-      else
-        render json: { error: 'Invalid parameter value for is_approved.' }, status: :unprocessable_entity
-      end
+      update_meeting_approval
+    end
+  end
+
+  def destroy
+    if @meeting
+      @meeting.user_meetings.destroy_all
+      @meeting.destroy
+      render json: { success: 'Meeting deleted successfully.' }, status: :no_content
+    else
+      render json: { error: 'Meeting not found.' }, status: :not_found
     end
   end
 
@@ -44,11 +45,27 @@ class Api::V1::MeetingsController < ApplicationController
     }
   end
 
+  def set_meeting
+    @meeting = Meeting.find_by(id: params[:id])
+  end
+
   def existing_partner_check
     if @users[:partner].nil?
       render json: { error: 'Partner not found.' }, status: :not_found
     end
   end 
+
+  def update_meeting_approval
+    if params[:is_approved] == "true"
+      @meeting.update(is_accepted: true)
+      render json: { success: 'Meeting updated successfully. Meeting is accepted.' }
+    elsif params[:is_approved] == "false"
+      @meeting.update(is_accepted: false)
+      render json: { success: 'Meeting updated successfully. Meeting is not accepted.' }
+    else
+      render json: { error: 'Invalid parameter value for is_approved.' }, status: :unprocessable_entity
+    end
+  end
 
   def meeting_params
     params.permit(:date, :start_time, :end_time, :is_accepted, :purpose)
