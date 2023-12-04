@@ -54,7 +54,7 @@ RSpec.describe 'Meetings API', type: :request do
         start_time: Faker::Time.forward,
         end_time: Faker::Time.forward,
         is_accepted: false,
-        purpose: Meeting.purposes.keys.sample
+        purpose: Faker::Lorem.sentence
       }
 
       post "/api/v1/meetings", params: meeting_info
