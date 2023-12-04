@@ -17,6 +17,24 @@ class Api::V1::MeetingsController < ApplicationController
     end
   end
 
+  def update
+    meeting = Meeting.find_by(id: params[:id])
+
+    if meeting.nil?
+      render json: { error: 'Meeting not found.' }, status: :not_found
+    else
+      if params[:is_approved] == "true"
+        meeting.update(is_accepted: true)
+        render json: { success: 'Meeting updated successfully.' }
+      elsif params[:is_approved] == "false"
+        meeting.update(is_accepted: true)
+        render json: { success: 'Meeting updated successfully.' }
+      else
+        render json: { error: 'Invalid parameter value for is_approved.' }, status: :unprocessable_entity
+      end
+    end
+  end
+
   private
 
   def set_users
