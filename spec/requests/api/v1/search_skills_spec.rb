@@ -48,7 +48,7 @@ RSpec.describe "Search skills endpoint", type: :request do
       expect(response.status).to eq(200)
 
       response_body = JSON.parse(response.body, symbolize_names: true)
-      expect(response_body[:error]).to eq("No users found with that skill.")
+      expect(response_body[:data]).to eq([])
     end
 
     it "returns a message if no users are found" do
