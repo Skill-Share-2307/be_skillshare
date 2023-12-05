@@ -3,13 +3,14 @@ class Api::V1::SearchSkillsController < ApplicationController
   before_action :check_for_empty_query
 
   def index
-    if params[:is_remote]
-      render json: SearchedUserSerializer.new(@users.remote_users)
-    elsif !@users.empty?
-      render json: SearchedUserSerializer.new(@users), status: 200
-    elsif searched_users.empty?
-      render json: {data: []}, status: 200
-    end 
+    searched_users = SearchFacade.new.users
+    # if params[:is_remote]
+    #   render json: SearchedUserSerializer.new(@users.remote_users)
+    # elsif !@users.empty?
+    #   render json: SearchedUserSerializer.new(@users), status: 200
+    # elsif searched_users.empty?
+    #   render json: {data: []}, status: 200
+    # end 
   end
 
  private

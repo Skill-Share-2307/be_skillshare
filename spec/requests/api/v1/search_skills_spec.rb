@@ -95,13 +95,13 @@ RSpec.describe "Search skills endpoint", type: :request do
     end
 
     it "returns a message if a blank parameter is passed" do
-        get "/api/v1/search_skills", params: {query: ""}
-  
-        expect(response).to_not be_successful
-        expect(response.status).to eq(400)
-  
-        response_body = JSON.parse(response.body, symbolize_names: true)
-        expect(response_body[:error]).to eq("Please enter a skill to search for.")
+      get "/api/v1/search_skills", params: {query: ""}
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+      expect(response_body[:error]).to eq("Please enter a skill to search for.")
     end
   end
 end
