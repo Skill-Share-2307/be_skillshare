@@ -64,6 +64,23 @@ RSpec.describe "Search skills endpoint", type: :request do
       includes_tyler = response_body[:data].any? { |user| user[:attributes][:first_name] == "Tyler"}
       expect(includes_tyler).to eq(false)
     end
+
+    it "includes the distance from the current user to each searched user if the current user's id is passed as a param" do
+      current_user = User.create(first_name: "Tyler", last_name: "Blackmon", email: "tyler#gmail.com", street: "1234 Street", city: "CO springs", state: "CO", zipcode: "12345", lat: 1.12, lon: 1.12, is_remote: false, about: "I enjoy long walks on the beach")
+      found_user = User.create(first_name: "Kiwi", last_name: "Bird", email: "kiwi@gmail.com", street: "1234 Street", city: "CO springs", state: "CO", zipcode: "12345", lat: 1.25, lon: 1.32, is_remote: false, about: "I enjoy long walks on the beach")
+      found_user_skill = Skill.create(name: "Testing", proficiency: 5, user_id: found_user.id)
+
+      get "/api/v1/search_skills", params: {query: "testing", is_remote: false, user_id: current_user.id}
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response_body).to be_a Hash
+      expect(response_body).to have_key(:distance)
+      expect(response_body[:distance]).to be_an Integer
+    end
   end
 
   describe "sad paths" do 
