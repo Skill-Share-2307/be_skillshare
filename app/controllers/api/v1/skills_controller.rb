@@ -6,6 +6,7 @@ class Api::V1::SkillsController < ApplicationController
 
       params[:skills].each do |skill|
         user.skills.create(name: skill[:name], proficiency: skill[:proficiency] )
+        #could we have other error handling here for skills already being present for user? 
       end
       render json: UserSerializer.new(user), status: 201
     rescue ActiveRecord::RecordNotFound
