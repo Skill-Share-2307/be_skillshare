@@ -20,7 +20,7 @@ RSpec.describe "Search skills endpoint", type: :request do
 
   describe "when I sent a query to '/api/v1/search_skills' " do 
     it "returns all the users with their skills" do
-      get "/api/v1/search_skills", params: {query: "knitting"}
+      get "/api/v1/search_skills", params: {query: "knitting", user_id: @user1.id}
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
@@ -41,7 +41,7 @@ RSpec.describe "Search skills endpoint", type: :request do
     end
 
     it "returns all the users with given skills if provided with a query that has multiple skills" do 
-      get "/api/v1/search_skills", params: {query: "knitting, piano"}
+      get "/api/v1/search_skills", params: {query: "knitting, piano", user_id: @user1.id}
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
@@ -52,7 +52,7 @@ RSpec.describe "Search skills endpoint", type: :request do
     end
 
     it "returns all users based on both the skill and if they are remote" do 
-      get "/api/v1/search_skills", params: {query: "knitting", is_remote: true}
+      get "/api/v1/search_skills", params: {query: "knitting", is_remote: true, user_id: @user1.id}
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
@@ -64,11 +64,38 @@ RSpec.describe "Search skills endpoint", type: :request do
       includes_tyler = response_body[:data].any? { |user| user[:attributes][:first_name] == "Tyler"}
       expect(includes_tyler).to eq(false)
     end
+
+    it "includes the distance from the current user to each searched user if the current user's id is passed as a param" do
+      current_user = User.create!(first_name: "Chicken", last_name: "Bird", email: "chicken@gmail.com", street: "1234 Street", city: "CO springs", state: "CO", zipcode: "12345", lat: 1.12, lon: 1.12, is_remote: false, about: "I enjoy long walks on the beach")
+      found_user = User.create!(first_name: "Kiwi", last_name: "Bird", email: "kiwi@gmail.com", street: "1234 Street", city: "CO springs", state: "CO", zipcode: "12345", lat: 1.25, lon: 1.32, is_remote: false, about: "I enjoy long walks on the beach")
+      found_user_skill = Skill.create!(name: "Testing", proficiency: 5, user_id: found_user.id)
+
+      get "/api/v1/search_skills", params: {query: "testing", is_remote: false, user_id: current_user.id}
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response_body).to be_a Hash
+      expect(response_body).to have_key(:data)
+      expect(response_body[:data]).to be_an Array
+
+      response_body[:data].each do |user|
+        expect(user).to be_a Hash
+        expect(user).to have_key(:attributes)
+        expect(user[:attributes]).to be_a Hash
+
+        attributes = user[:attributes]
+        expect(attributes).to have_key(:distance)
+        expect(attributes[:distance]).to be_an Integer
+      end
+    end
   end
 
   describe "sad paths" do 
     it "returns a message if no users are found" do
-      get "/api/v1/search_skills", params: {query: "rocket science"}
+      get "/api/v1/search_skills", params: {query: "rocket science", user_id: @user1.id}
 
       expect(response).to be_successful
       expect(response.status).to eq(200)
@@ -78,13 +105,23 @@ RSpec.describe "Search skills endpoint", type: :request do
     end
 
     it "returns a message if a blank parameter is passed" do
-        get "/api/v1/search_skills", params: {query: ""}
-  
-        expect(response).to_not be_successful
-        expect(response.status).to eq(400)
-  
-        response_body = JSON.parse(response.body, symbolize_names: true)
-        expect(response_body[:error]).to eq("Please enter a skill to search for.")
+      get "/api/v1/search_skills", params: {query: ""}
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+      expect(response_body[:error]).to eq("Please enter a skill to search for.")
+    end
+
+    it "returns an error if no user_id is provided" do
+      get "/api/v1/search_skills", params: {query: "rocket science"}
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+      expect(response_body[:error]).to eq("User could not be found")
     end
   end
 end
