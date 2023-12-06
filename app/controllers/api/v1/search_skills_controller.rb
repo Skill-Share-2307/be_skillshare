@@ -1,17 +1,14 @@
 class Api::V1::SearchSkillsController < ApplicationController
-  # before_action :searched_users, only: [:index]
   before_action :check_for_empty_query
 
   def index
-    searched_users = SearchFacade.new(params).build_users
-    render json: SearchedUserSerializer.new(searched_users)
-    # if params[:is_remote]
-    #   render json: SearchedUserSerializer.new(@users.remote_users)
-    # elsif !@users.empty?
-    #   render json: SearchedUserSerializer.new(@users), status: 200
-    # elsif searched_users.empty?
-    #   render json: {data: []}, status: 200
-    # end 
+    begin
+      searched_users = SearchFacade.new(params).build_users
+    rescue ActiveRecord::RecordNotFound 
+      render json: {error: "User could not be found"}, status: 404
+    else
+      render json: SearchedUserSerializer.new(searched_users)
+    end
   end
 
  private
@@ -24,10 +21,6 @@ class Api::V1::SearchSkillsController < ApplicationController
     #can add more filters after this to reduce the users array we get back. 
     users
   end
-
-  # def searched_users 
-  #   @users = User.search_for_skills(params[:query])
-  # end
 
   def check_for_empty_query
     if params[:query].blank?
