@@ -1,9 +1,9 @@
 class Api::V1::SearchSkillsController < ApplicationController
-  before_action :searched_users, only: [:index]
+  # before_action :searched_users, only: [:index]
   before_action :check_for_empty_query
 
   def index
-    searched_users = SearchFacade.new.users
+    searched_users = SearchFacade.new(params).users
     # if params[:is_remote]
     #   render json: SearchedUserSerializer.new(@users.remote_users)
     # elsif !@users.empty?
@@ -24,9 +24,9 @@ class Api::V1::SearchSkillsController < ApplicationController
     users
   end
 
-  def searched_users 
-    @users = User.search_for_skills(params[:query])
-  end
+  # def searched_users 
+  #   @users = User.search_for_skills(params[:query])
+  # end
 
   def check_for_empty_query
     if params[:query].blank?
