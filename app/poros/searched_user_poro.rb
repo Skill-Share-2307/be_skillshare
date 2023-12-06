@@ -37,7 +37,8 @@ class SearchedUserPoro
       a = Math.sin(d_phi / 2.0)**2 + Math.cos(phi_1) * Math.cos(phi_2) * Math.sin(d_lam / 2.0)**2
       c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 
-      miles = (r * c * 0.000621).ceil
+      miles = (r * c * 0.000621).round
+      miles >= 1 ? miles : 1 # ensure we never send 0 as a distance
     end
 
     def to_radian(degree)
