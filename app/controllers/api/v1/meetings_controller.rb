@@ -56,12 +56,10 @@ class Api::V1::MeetingsController < ApplicationController
   end 
 
   def update_meeting_approval
-    if params[:is_approved] == "true"
-      @meeting.update(is_accepted: true)
-      render json: { success: 'Meeting updated successfully. Meeting is accepted.' }
-    elsif params[:is_approved] == "false"
-      @meeting.update(is_accepted: false)
-      render json: { success: 'Meeting updated successfully. Meeting is not accepted.' }
+    is_approved = params[:is_approved].to_s.downcase
+    if ['true', 'false'].include?(is_approved)
+      @meeting.update(is_accepted: is_approved)
+      render json: { success: "Meeting updated successfully. Meeting is #{is_approved == 'true' ? 'accepted' : 'not accepted'}." }
     else
       render json: { error: 'Invalid parameter value for is_approved.' }, status: :unprocessable_entity
     end
