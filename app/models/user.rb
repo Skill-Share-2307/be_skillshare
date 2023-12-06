@@ -10,9 +10,17 @@ class User < ApplicationRecord
   before_validation :get_coords
 
   def self.search_for_skills(query)
-    User
-    .joins(:skills)
-    .where("skills.name ILIKE ?", "%#{query}%")
+    skills = query.split(',').map { |skill| skill.strip.downcase }
+    
+    conditions = skills.map { |skill|
+      "LOWER(skills.name) ILIKE '%#{sanitize_sql_like(skill)}%'"
+    }.join(' OR ')
+  
+    User.joins(:skills).where(conditions).distinct
+  end
+
+  def self.remote_users
+    User.where(is_remote: true)
   end
 
   private

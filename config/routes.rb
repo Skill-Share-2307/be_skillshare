@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create]
       resources :search_skills, only: [:index]
       resources :meetings, only: [:create, :update, :destroy]
+      resources :add_skills, only: [:create], controller: 'skills', action: 'create'
     end
   end
 end
