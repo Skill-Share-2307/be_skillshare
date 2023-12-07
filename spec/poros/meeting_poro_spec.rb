@@ -12,8 +12,8 @@ RSpec.describe MeetingPoro do
     expect(poro).to be_a MeetingPoro
     expect(poro.id).to eq(meeting.id)
     expect(poro.date).to eq(meeting.date)
-    expect(poro.start_time).to eq(meeting.start_time)
-    expect(poro.end_time).to eq(meeting.end_time)
+    expect(poro.start_time).to eq(meeting.start_time.strftime("%I:%M %p"))
+    expect(poro.end_time).to eq(meeting.end_time.strftime("%I:%M %p"))
     expect(poro.purpose).to eq(meeting.purpose)
     expect(poro.partner_id).to eq(found_user.id)
     expect(poro.is_accepted).to eq(meeting.is_accepted)
