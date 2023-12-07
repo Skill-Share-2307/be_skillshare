@@ -1,4 +1,10 @@
 class Api::V1::UsersController < ApplicationController
+
+  def index
+    users = User.all
+    render json: UserSerializer.new(users)
+  end
+
   def show
     begin
       user = User.find(params[:id])
