@@ -6,7 +6,7 @@ class MeetingPoro
     @end_time = meeting.end_time
     @is_accepted = meeting.is_accepted
     @purpose = meeting.purpose
-    @partner_id = Meeting.get_partner_id(meeting.id, user_id)
+    @partner_id = meeting.get_attendee(user_id)
     @user_id = user_id
   end
 end
