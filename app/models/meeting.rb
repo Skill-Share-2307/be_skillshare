@@ -7,7 +7,11 @@ class Meeting < ApplicationRecord
     user_meetings.find_by(is_requestor: false).user_id
   end
 
-  def user_id
+  def host_id
     user_meetings.find_by(is_requestor: true).user_id
+  end
+
+  def get_attendee(user_id)
+    user_meetings.where.not("user_meetings.user_id = ?", user_id).pluck(:user_id).first
   end
 end

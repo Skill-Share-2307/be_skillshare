@@ -5,30 +5,31 @@ RSpec.describe 'User Meetings API', type: :request do
     it 'returns information of meetings for a user; it will show same meeting data for each participant' do
       user = create(:user)
       partner = create(:user)
-      meeting = create(:meeting, users: [user, partner])
+      new_meeting = create(:meeting, users: [user, partner])
 
       expect(Meeting.count).to eq(1)
       expect(UserMeeting.count).to eq(2)
+      UserMeeting.first.update(is_requestor: true)
 
       get "/api/v1/users/#{user.id}/meetings"
       expect(response).to have_http_status(200)
       data = JSON.parse(response.body, symbolize_names: true)
 
       meeting_data = data[:data]
-      expect(meeting_data).to have_key(:id)
-      expect(meeting_data[:id]).to eq("#{user.id}")
-      expect(meeting_data).to have_key(:type)
-      expect(meeting_data).to have_key(:attributes)
-
-      meeting_attributes = meeting_data[:attributes]
-      user_meetings = meeting_attributes[:meetings]
-      user_meetings.each do |meeting|
+      meeting_data.each do |meeting|
         expect(meeting).to have_key(:id)
-        expect(meeting).to have_key(:date)
-        expect(meeting).to have_key(:start_time)
-        expect(meeting).to have_key(:end_time)
-        expect(meeting).to have_key(:is_accepted)
-        expect(meeting).to have_key(:purpose)
+        expect(meeting[:id]).to eq(new_meeting.id.to_s)
+        expect(meeting).to have_key(:type)
+        expect(meeting).to have_key(:attributes)
+
+        meeting_attributes = meeting[:attributes]
+        expect(meeting_attributes).to have_key(:date)
+        expect(meeting_attributes).to have_key(:start_time)
+        expect(meeting_attributes).to have_key(:end_time)
+        expect(meeting_attributes).to have_key(:is_accepted)
+        expect(meeting_attributes).to have_key(:purpose)
+        expect(meeting_attributes).to have_key(:partner_id)
+        expect(meeting_attributes).to have_key(:is_host)
       end
 
       get "/api/v1/users/#{partner.id}/meetings"
@@ -36,23 +37,21 @@ RSpec.describe 'User Meetings API', type: :request do
       data_2 = JSON.parse(response.body, symbolize_names: true)
 
       meeting_data_2 = data_2[:data]
-      expect(meeting_data_2).to have_key(:id)
-      expect(meeting_data_2[:id]).to eq("#{partner.id}")
-      expect(meeting_data_2).to have_key(:type)
-      expect(meeting_data_2).to have_key(:attributes)
-
-      meeting_attributes_2 = meeting_data_2[:attributes]
-      user_meetings_2 = meeting_attributes_2[:meetings]
-      user_meetings_2.each do |meeting|
+      meeting_data_2.each do |meeting|
         expect(meeting).to have_key(:id)
-        expect(meeting).to have_key(:date)
-        expect(meeting).to have_key(:start_time)
-        expect(meeting).to have_key(:end_time)
-        expect(meeting).to have_key(:is_accepted)
-        expect(meeting).to have_key(:purpose)
-      end
+        expect(meeting[:id]).to eq(new_meeting.id.to_s)
+        expect(meeting).to have_key(:type)
+        expect(meeting).to have_key(:attributes)
 
-      expect(meeting_attributes_2).to eq(meeting_attributes)
+        meeting_attributes_2 = meeting[:attributes]
+        expect(meeting_attributes_2).to have_key(:date)
+        expect(meeting_attributes_2).to have_key(:start_time)
+        expect(meeting_attributes_2).to have_key(:end_time)
+        expect(meeting_attributes_2).to have_key(:is_accepted)
+        expect(meeting_attributes_2).to have_key(:purpose)
+        expect(meeting_attributes_2).to have_key(:partner_id)
+        expect(meeting_attributes_2).to have_key(:is_host)
+      end
     end
 
     it 'will return an empty array if user has no meetings' do 
@@ -62,12 +61,10 @@ RSpec.describe 'User Meetings API', type: :request do
       expect(response).to have_http_status(200)
       data = JSON.parse(response.body, symbolize_names: true)
 
-      meeting_data = data[:data]
-      expect(meeting_data).to have_key(:attributes)
-
-      meeting_attributes = meeting_data[:attributes]
-      user_meetings = meeting_attributes[:meetings]
-      expect(user_meetings).to eq([])
+      expect(data).to be_a Hash
+      expect(data).to have_key(:data)
+      expect(data[:data]).to be_an Array
+      expect(data[:data]).to be_empty
     end
 
     it 'returns an error message if a user is not found' do 
