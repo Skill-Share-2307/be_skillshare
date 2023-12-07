@@ -9,6 +9,7 @@ RSpec.describe 'User Meetings API', type: :request do
 
       expect(Meeting.count).to eq(1)
       expect(UserMeeting.count).to eq(2)
+      UserMeeting.first.update(is_requestor: true)
 
       get "/api/v1/users/#{user.id}/meetings"
       expect(response).to have_http_status(200)
@@ -28,6 +29,7 @@ RSpec.describe 'User Meetings API', type: :request do
         expect(meeting_attributes).to have_key(:is_accepted)
         expect(meeting_attributes).to have_key(:purpose)
         expect(meeting_attributes).to have_key(:partner_id)
+        expect(meeting_attributes).to have_key(:is_host)
       end
 
       get "/api/v1/users/#{partner.id}/meetings"
@@ -48,6 +50,7 @@ RSpec.describe 'User Meetings API', type: :request do
         expect(meeting_attributes_2).to have_key(:is_accepted)
         expect(meeting_attributes_2).to have_key(:purpose)
         expect(meeting_attributes_2).to have_key(:partner_id)
+        expect(meeting_attributes_2).to have_key(:is_host)
       end
     end
 

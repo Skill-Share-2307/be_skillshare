@@ -17,5 +17,9 @@ RSpec.describe MeetingPoro do
     expect(poro.purpose).to eq(meeting.purpose)
     expect(poro.partner_id).to eq(found_user.id)
     expect(poro.is_accepted).to eq(meeting.is_accepted)
+    expect(poro.is_host).to eq(true)
+
+    poro2 = MeetingPoro.new(meeting, found_user.id)
+    expect(poro2.is_host).to eq(false)
   end
 end

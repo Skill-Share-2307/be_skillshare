@@ -5,7 +5,8 @@ class MeetingPoro
               :end_time,
               :is_accepted,
               :purpose,
-              :partner_id
+              :partner_id,
+              :is_host
 
   def initialize(meeting, user_id)
     @id = meeting.id
@@ -15,5 +16,6 @@ class MeetingPoro
     @is_accepted = meeting.is_accepted
     @purpose = meeting.purpose
     @partner_id = meeting.get_attendee(user_id)
+    @is_host = user_id == meeting.host_id
   end
 end
