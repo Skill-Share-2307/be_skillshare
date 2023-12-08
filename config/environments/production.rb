@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.x.image_service_url = "https://be-image-service-89cf12d11323.herokuapp.com/"
+  config.x.image_service_url = "https://be-image-service-89cf12d11323.herokuapp.com"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
