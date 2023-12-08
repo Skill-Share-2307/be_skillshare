@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Search skills endpoint", type: :request do 
-  before :each do
+  before :each, :vcr do
     @user1 = User.create(first_name: "Steve", last_name: "Jobs", email: "steve@gmail.com", street: "1234 Street", city: "Cupertino", state: "CA", zipcode: "12345", lat: "1.12", lon: "1.12", is_remote: "true", about: "I am a very good programmer")
     @user2 = User.create(first_name: "Ethan", last_name: "Bustamante", email: "Ethan@gmail.com", street: "1234 Street", city: "Denver", state: "CO", zipcode: "12345", lat: "1.12", lon: "1.12", is_remote: "true", about: "I am a also very good programmer")
     @user3 = User.create(first_name: "Tyler", last_name: "Blackmon", email: "tyler#gmail.com", street: "1234 Street", city: "CO springs", state: "CO", zipcode: "12345", lat: "1.12", lon: "1.12", is_remote: "false", about: "I enjoy long walks on the beach")
@@ -18,7 +18,7 @@ RSpec.describe "Search skills endpoint", type: :request do
     @tylerskill1 = Skill.create(name: "Piano", proficiency: 3, user_id: @user3.id)
   end
 
-  describe "when I sent a query to '/api/v1/search_skills' " do 
+  describe "when I sent a query to '/api/v1/search_skills' ", :vcr do 
     it "returns all the users with their skills" do
       get "/api/v1/search_skills", params: {query: "knitting", user_id: @user1.id}
 
@@ -93,7 +93,7 @@ RSpec.describe "Search skills endpoint", type: :request do
     end
   end
 
-  describe "sad paths" do 
+  describe "sad paths", :vcr do 
     it "returns a message if no users are found" do
       get "/api/v1/search_skills", params: {query: "rocket science", user_id: @user1.id}
 

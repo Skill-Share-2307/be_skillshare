@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Meetings API', type: :request do
-  describe 'POST /api/v1/meetings' do
+  describe 'POST /api/v1/meetings', :vcr do
     it 'meeting can be created between two users' do
       user = create(:user)
       partner = create(:user)
@@ -84,7 +84,7 @@ RSpec.describe 'Meetings API', type: :request do
     end
   end
 
-  describe 'PATCH /api/v1/meetings/:meeting_id' do
+  describe 'PATCH /api/v1/meetings/:meeting_id', :vcr do
     it 'updates the meeting when is_approved is true' do
       user = create(:user)
       partner = create(:user)
@@ -164,7 +164,7 @@ RSpec.describe 'Meetings API', type: :request do
     end
   end
 
-  describe 'DELETE /api/v1/meetings/:meeting_id' do
+  describe 'DELETE /api/v1/meetings/:meeting_id', :vcr do
     it 'deletes the meeting' do
       user = create(:user)
       partner = create(:user)

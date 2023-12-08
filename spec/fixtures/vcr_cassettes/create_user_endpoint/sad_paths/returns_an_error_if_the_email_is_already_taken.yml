@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"4c6b3a8d74c652fda0cbf40c08fcdcaf"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1718b5a7-6afb-4a95-9aad-b39c08094a99
+      X-Runtime:
+      - '0.284827'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, process_action.action_controller;dur=283.52
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"image_url":"https://images.unsplash.com/photo-1571816119553-df62a2eedf56?ixid=M3w1Mzg2MDB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzU2MzR8\u0026ixlib=rb-4.0.3"}'
+  recorded_at: Fri, 08 Dec 2023 22:47:14 GMT
+recorded_with: VCR 6.2.0

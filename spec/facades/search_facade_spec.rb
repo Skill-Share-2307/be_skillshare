@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SearchFacade do
-  before(:each) do
+  before :each, :vcr do
     @current_user = User.create!(first_name: "Chicken", last_name: "Bird", email: "chicken@gmail.com", street: "1234 Street", city: "CO springs", state: "CO", zipcode: "12345", lat: 1.12, lon: 1.12, is_remote: false, about: "I enjoy long walks on the beach")
     @found_user = User.create!(first_name: "Kiwi", last_name: "Bird", email: "kiwi@gmail.com", street: "1234 Street", city: "CO springs", state: "CO", zipcode: "12345", lat: 1.25, lon: 1.32, is_remote: false, about: "I enjoy long walks on the beach")
     @found_user_skill = Skill.create!(name: "Testing", proficiency: 5, user_id: @found_user.id)
@@ -13,7 +13,7 @@ RSpec.describe SearchFacade do
     }
   end
 
-  it "exists and has unreadable attributes on initialize" do
+  it "exists and has unreadable attributes on initialize", :vcr do
     facade = SearchFacade.new(@params)
     expect(facade).to be_a SearchFacade
     expect {facade.is_remote}.to raise_error(NoMethodError)
@@ -22,7 +22,7 @@ RSpec.describe SearchFacade do
   end
 
   describe "#build_users" do
-    it "returns an array of SearchedUserPoro objects" do
+    it "returns an array of SearchedUserPoro objects", :vcr do
       facade = SearchFacade.new(@params)
       users = facade.build_users
       expect(users).to be_an Array

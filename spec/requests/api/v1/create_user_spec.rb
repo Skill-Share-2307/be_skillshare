@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "create user endpoint", type: :request do
-  describe "when I send a post request to '/api/v1/users' with a body" do 
+  describe "when I send a post request to '/api/v1/users' with a body", :vcr do 
     it "creates a user and send back all the user's data" do 
       expect(User.count).to eq(0)
 
@@ -48,12 +48,14 @@ RSpec.describe "create user endpoint", type: :request do
       expect(attributes[:lon]).to eq(user.lon)
       expect(attributes).to have_key(:is_remote)
       expect(attributes[:is_remote]).to eq(user.is_remote)
+      expect(attributes).to have_key(:profile_picture)
+      expect(attributes[:profile_picture]).to eq(user.profile_picture)
 
       expect(User.count).to eq(1)
     end
   end
 
-  describe "sad paths" do 
+  describe "sad paths", :vcr do 
     it "returns an error if the email is already taken" do 
       user = create(:user, email:"taken@gmail.com")
       expect(User.count).to eq(1)

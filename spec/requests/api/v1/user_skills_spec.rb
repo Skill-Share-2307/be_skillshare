@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "user skills endpoint", type: :request do 
-  describe "when I send a post request to '/api/v1/add_skills' " do 
+  describe "when I send a post request to '/api/v1/add_skills' ", :vcr do 
     it "creates user skills in the database for the user_id that is passed" do 
       user1 = create(:user, id: 1)
       
@@ -27,7 +27,7 @@ RSpec.describe "user skills endpoint", type: :request do
     end
   end
   
-  describe "sad paths" do 
+  describe "sad paths", :vcr do 
     it "creates user skills in the database for the user_id that is passed" do 
     user1 = create(:user, id: 1)
     user2 = create(:user, id: 2)

@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.geoapify.com/v1/geocode/search?apiKey=93f93c3c076248328d387046570e3626&format=json&text=5935%20Dublin%20Blvd%20%23100,%20Colorado%20Springs,%20Colorado%2080923
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 Dec 2023 23:08:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Api-Version:
+      - '1.0'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - accept, accept-language, content-language, access-control-max-age, access-control-allow-headers,
+        access-control-allow-methods, access-control-allow-origin, allow, api-version,
+        cf-ray, content-encoding, content-type, date, expect-ct, server, status, vary,
+        cache-control, etag, last-modified, expires, host, cf-timezone, cf-pseudo-ipv4,
+        accept-encoding, x-forwarded-for, x-forwarded-proto, cf-visitor, user-agent,
+        cf-connecting-ip, cdn-loop, cf-ipcity, cf-ipcontinent, cf-ipcountry, cf-iplatitude,
+        cf-iplongitude, cf-metro-code, cf-postal-code, cf-region, cf-region-code,
+        x-forwarded-port
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, OPTIONS, PUT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      Cache-Control:
+      - private, max-age=0, no-cache
+      Content-Disposition:
+      - inline; filename=response.json
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Dc18COjNgJ8tZfj6aRbrBhskuu2i5SCH5jkLhQnAsHhGu0jJbeY%2Fz%2BdOjeqFU4GWr%2FNNnMJvorHGzFbySmNbbRDXdb4rSWGW5AyN8%2FTZm0eRd84bgdK1Gg5a7Z%2FOUv97KOg03%2BmJH5MMlSSKz94%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8328ac1a69a71f4c-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJyZXN1bHRzIjpbeyJkYXRhc291cmNlIjp7InNvdXJjZW5hbWUiOiJvcGVuc3RyZWV0bWFwIiwiYXR0cmlidXRpb24iOiLCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycyIsImxpY2Vuc2UiOiJPcGVuIERhdGFiYXNlIExpY2Vuc2UiLCJ1cmwiOiJodHRwczovL3d3dy5vcGVuc3RyZWV0bWFwLm9yZy9jb3B5cmlnaHQifSwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMiLCJjb3VudHJ5X2NvZGUiOiJ1cyIsInN0YXRlIjoiQ29sb3JhZG8iLCJjb3VudHkiOiJFbCBQYXNvIENvdW50eSIsImNpdHkiOiJDb2xvcmFkbyBTcHJpbmdzIiwicG9zdGNvZGUiOiI4MDkyMyIsInN0cmVldCI6IkR1YmxpbiBCb3VsZXZhcmQiLCJob3VzZW51bWJlciI6IjU5MzUiLCJsb24iOi0xMDQuNzE3NjkxODU3MzI5NzMsImxhdCI6MzguOTI1ODkwMDk4NTQ4MDUsInN0YXRlX2NvZGUiOiJDTyIsImZvcm1hdHRlZCI6IjU5MzUgRHVibGluIEJvdWxldmFyZCwgQ29sb3JhZG8gU3ByaW5ncywgQ08gODA5MjMsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImFkZHJlc3NfbGluZTEiOiI1OTM1IER1YmxpbiBCb3VsZXZhcmQiLCJhZGRyZXNzX2xpbmUyIjoiQ29sb3JhZG8gU3ByaW5ncywgQ08gODA5MjMsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsInRpbWV6b25lIjp7Im5hbWUiOiJBbWVyaWNhL0RlbnZlciIsIm9mZnNldF9TVEQiOiItMDc6MDAiLCJvZmZzZXRfU1REX3NlY29uZHMiOi0yNTIwMCwib2Zmc2V0X0RTVCI6Ii0wNjowMCIsIm9mZnNldF9EU1Rfc2Vjb25kcyI6LTIxNjAwLCJhYmJyZXZpYXRpb25fU1REIjoiTVNUIiwiYWJicmV2aWF0aW9uX0RTVCI6Ik1EVCJ9LCJwbHVzX2NvZGUiOiI4NUNRVzdHSis5VyIsInBsdXNfY29kZV9zaG9ydCI6Ilc3R0orOVcgQ29sb3JhZG8gU3ByaW5ncywgRWwgUGFzbyBDb3VudHksIFVuaXRlZCBTdGF0ZXMiLCJyZXN1bHRfdHlwZSI6ImJ1aWxkaW5nIiwicmFuayI6eyJpbXBvcnRhbmNlIjotMC44Mjk5OTk5OTk5OTk5OTk4LCJwb3B1bGFyaXR5IjoyLjM5NTEzMTg2NjE3NzQzNjYsImNvbmZpZGVuY2UiOjEsImNvbmZpZGVuY2VfY2l0eV9sZXZlbCI6MSwiY29uZmlkZW5jZV9zdHJlZXRfbGV2ZWwiOjEsIm1hdGNoX3R5cGUiOiJmdWxsX21hdGNoIn0sInBsYWNlX2lkIjoiNTE4Y2Y1ZDNhOWVlMmQ1YWMwNTkyMDdhMTY5MTgzNzY0MzQwZjAwMTAyZjkwMTg1YzI1ZjAyMDAwMDAwMDBjMDAyMDMiLCJiYm94Ijp7ImxvbjEiOi0xMDQuNzE3NzQxODU3MzMsImxhdDEiOjM4LjkyNTg0MDA5ODU0OCwibG9uMiI6LTEwNC43MTc2NDE4NTczMywibGF0MiI6MzguOTI1OTQwMDk4NTQ4fX0seyJkYXRhc291cmNlIjp7InNvdXJjZW5hbWUiOiJvcGVuc3RyZWV0bWFwIiwiYXR0cmlidXRpb24iOiLCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycyIsImxpY2Vuc2UiOiJPcGVuIERhdGFiYXNlIExpY2Vuc2UiLCJ1cmwiOiJodHRwczovL3d3dy5vcGVuc3RyZWV0bWFwLm9yZy9jb3B5cmlnaHQifSwibmFtZSI6IkJ1ZmYgQ2l0eSBTb2FwIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMiLCJjb3VudHJ5X2NvZGUiOiJ1cyIsInN0YXRlIjoiQ29sb3JhZG8iLCJjb3VudHkiOiJFbCBQYXNvIENvdW50eSIsImNpdHkiOiJDb2xvcmFkbyBTcHJpbmdzIiwicG9zdGNvZGUiOiI4MDkyMyIsInN0cmVldCI6IkR1YmxpbiBCb3VsZXZhcmQiLCJob3VzZW51bWJlciI6IjU5MzUiLCJsb24iOi0xMDQuNzE4NDA3MjQ1NDc5MDQsImxhdCI6MzguOTIzMzQ0NTQ5OTk5OTk2LCJzdGF0ZV9jb2RlIjoiQ08iLCJmb3JtYXR0ZWQiOiJCdWZmIENpdHkgU29hcCwgNTkzNSBEdWJsaW4gQm91bGV2YXJkLCBDb2xvcmFkbyBTcHJpbmdzLCBDTyA4MDkyMywgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiYWRkcmVzc19saW5lMSI6IkJ1ZmYgQ2l0eSBTb2FwIiwiYWRkcmVzc19saW5lMiI6IjU5MzUgRHVibGluIEJvdWxldmFyZCwgQ29sb3JhZG8gU3ByaW5ncywgQ08gODA5MjMsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNhdGVnb3J5IjoiY29tbWVyY2lhbC5oZWFsdGhfYW5kX2JlYXV0eTtzZXJ2aWNlLmJlYXV0eS5zcGEiLCJ0aW1lem9uZSI6eyJuYW1lIjoiQW1lcmljYS9EZW52ZXIiLCJvZmZzZXRfU1REIjoiLTA3OjAwIiwib2Zmc2V0X1NURF9zZWNvbmRzIjotMjUyMDAsIm9mZnNldF9EU1QiOiItMDY6MDAiLCJvZmZzZXRfRFNUX3NlY29uZHMiOi0yMTYwMCwiYWJicmV2aWF0aW9uX1NURCI6Ik1TVCIsImFiYnJldmlhdGlvbl9EU1QiOiJNRFQifSwicGx1c19jb2RlIjoiODVDUVc3RkorOEoiLCJwbHVzX2NvZGVfc2hvcnQiOiJXN0ZKKzhKIENvbG9yYWRvIFNwcmluZ3MsIEVsIFBhc28gQ291bnR5LCBVbml0ZWQgU3RhdGVzIiwicmVzdWx0X3R5cGUiOiJhbWVuaXR5IiwicmFuayI6eyJpbXBvcnRhbmNlIjowLjMyMDAxLCJwb3B1bGFyaXR5IjoyLjQ1NTIwNTg4NjQxNDYzNTMsImNvbmZpZGVuY2UiOjEsImNvbmZpZGVuY2VfY2l0eV9sZXZlbCI6MSwiY29uZmlkZW5jZV9zdHJlZXRfbGV2ZWwiOjEsIm1hdGNoX3R5cGUiOiJpbm5lcl9wYXJ0In0sInBsYWNlX2lkIjoiNTFhZjIyNjI2MmZhMmQ1YWMwNTk0Yzk4N2EyNzMwNzY0MzQwZjAwMTAyZjkwMTIyNmZkNzJlMDAwMDAwMDBjMDAyMDE5MjAzMGU0Mjc1NjY2NjIwNDM2OTc0NzkyMDUzNmY2MTcwIiwiYmJveCI6eyJsb24xIjotMTA0LjcxODUzMjcsImxhdDEiOjM4LjkyMzI5OTksImxvbjIiOi0xMDQuNzE4MjgxLCJsYXQyIjozOC45MjMzODkyfX1dLCJxdWVyeSI6eyJ0ZXh0IjoiNTkzNSBEdWJsaW4gQmx2ZCAjMTAwLCBDb2xvcmFkbyBTcHJpbmdzLCBDb2xvcmFkbyA4MDkyMyIsInBhcnNlZCI6eyJ1bml0IjoiIzEwMCIsImhvdXNlbnVtYmVyIjoiNTkzNSIsInN0cmVldCI6ImR1YmxpbiBibHZkIiwicG9zdGNvZGUiOiI4MDkyMyIsImNpdHkiOiJjb2xvcmFkbyBzcHJpbmdzIiwic3RhdGUiOiJjb2xvcmFkbyIsImV4cGVjdGVkX3R5cGUiOiJidWlsZGluZyJ9fX0=
+  recorded_at: Fri, 08 Dec 2023 23:08:48 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"33337a3cf64e9080f2f5aa7d291b6209"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 77d54a26-dd34-4e1c-9148-c678f19a2685
+      X-Runtime:
+      - '0.264262'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, process_action.action_controller;dur=263.04
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"image_url":"https://images.unsplash.com/photo-1596243651159-908a16206cab?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzY5Mjh8\u0026ixlib=rb-4.0.3"}'
+  recorded_at: Fri, 08 Dec 2023 23:08:48 GMT
+recorded_with: VCR 6.2.0

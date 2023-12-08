@@ -6,7 +6,7 @@ RSpec.describe Meeting, type: :model do
     it { should have_many(:users).through(:user_meetings) }
   end
 
-  describe "instance methods" do
+  describe "instance methods", :vcr do
     describe "#host_id" do
       it "returns the user id of the host of a meeting" do
         current_user = User.create!(first_name: "Chicken", last_name: "Bird", email: "chicken@gmail.com", street: "1234 Street", city: "CO springs", state: "CO", zipcode: "12345", lat: 1.12, lon: 1.12, is_remote: false, about: "I enjoy long walks on the beach")
