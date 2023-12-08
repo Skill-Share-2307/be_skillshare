@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :skills
 
   before_validation :get_coords
+  before_create :set_profile_picture
 
   def self.search_for_skills(query)
     skills = query.split(',').map { |skill| skill.strip.downcase }
@@ -32,5 +33,10 @@ class User < ApplicationRecord
         self.lat = geocode[:results].first[:lat]
         self.lon = geocode[:results].first[:lon]
       end
+    end
+
+    def set_profile_picture
+      image = ImageService.new.user_image
+      self.profile_picture = image[:image_url]
     end
 end
