@@ -37,6 +37,6 @@ class User < ApplicationRecord
 
     def set_profile_picture
       image = ImageService.new.user_image
-      self.profile_picture = image[:image_url]
+      self.profile_picture = image[:data][:attributes][:raw_image]
     end
 end
