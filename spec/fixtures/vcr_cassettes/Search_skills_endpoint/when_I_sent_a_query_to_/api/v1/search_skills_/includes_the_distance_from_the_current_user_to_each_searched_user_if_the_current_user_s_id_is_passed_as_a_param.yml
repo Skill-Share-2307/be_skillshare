@@ -1,0 +1,253 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"829cf67492e51361e64db0b93cfa8a8f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 037e36fb-08c2-413b-bc4a-463616e197b8
+      X-Runtime:
+      - '0.267062'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, process_action.action_controller;dur=264.74
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1608190003443-86b2636f2fe3?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0ODd8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:47 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"eafdb10b0b50bf9d94607e6b0c13250c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5d280b8c-6926-4df8-8841-fb452bb76f2e
+      X-Runtime:
+      - '0.282465'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, process_action.action_controller;dur=280.46
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1526510747491-58f928ec870f?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0ODd8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:47 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"88b798ab207f910dad085130dc970658"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1f458340-0c83-4d7a-b8ad-98a538c7ec7e
+      X-Runtime:
+      - '0.268867'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, process_action.action_controller;dur=266.93
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0ODh8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:48 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"38eab27a34be4aa915de807e8eb521e6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8a802aa7-40ec-4b67-932c-20e65f4437c2
+      X-Runtime:
+      - '0.257314'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, process_action.action_controller;dur=255.31
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1596215143922-eedeaba0d91c?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0ODh8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:48 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"701f407f9d1ba1a0105cc44a39863a7f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ce556595-b04c-4e20-a7cf-9e6c35425c8f
+      X-Runtime:
+      - '0.268760'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, process_action.action_controller;dur=260.26
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1542362879-8353335123aa?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0ODh8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:48 GMT
+recorded_with: VCR 6.2.0

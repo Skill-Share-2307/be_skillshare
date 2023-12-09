@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users API', type: :request do
-  describe 'GET /api/v1/users/:user_id' do
+  describe 'GET /api/v1/users/:user_id', :vcr do
     it 'returns user information' do
       user = create(:user)
       user_2 = create(:user)

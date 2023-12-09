@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User Meetings API', type: :request do
-  describe 'GET /api/v1/users/:user_id/meetings' do
+  describe 'GET /api/v1/users/:user_id/meetings', :vcr do
     it 'returns information of meetings for a user; it will show same meeting data for each participant' do
       user = create(:user)
       partner = create(:user)

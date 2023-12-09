@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'validations' do 
+  describe 'validations', :vcr do 
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email) }
   end 
@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "class methods" do
-    describe "#remote_users" do 
+    describe "#remote_users", :vcr do 
       it "returns all users that have the attribute 'is_remote' set to true" do 
         user1 = User.create(first_name: "Steve", last_name: "Jobs", email: "steve@gmail.com", street: "1234 Street", city: "Cupertino", state: "CA", zipcode: "12345", lat: "1.12", lon: "1.12", is_remote: "true", about: "I am a very good programmer")
         user2 = User.create(first_name: "Ethan", last_name: "Bustamante", email: "Ethan@gmail.com", street: "1234 Street", city: "Denver", state: "CO", zipcode: "12345", lat: "1.12", lon: "1.12", is_remote: "true", about: "I am a also very good programmer")
@@ -24,11 +24,11 @@ RSpec.describe User, type: :model do
   end
 
   describe "instance methods" do
-    describe "#get_coords" do
+    describe "#get_coords", :vcr do
       it "finds and saves coordinates to a user when a user is saved without coordinates" do
-        stub = File.read('spec/fixtures/geocoding_response.json')
-        stub_request(:get, "https://api.geoapify.com/v1/geocode/search?apiKey=#{Rails.application.credentials.geoapify[:api_key]}&format=json&text=5935%20Dublin%20Blvd%20%23100,%20Colorado%20Springs,%20Colorado%2080923").
-          to_return(status: 200, body: stub)
+        # stub = File.read('spec/fixtures/geocoding_response.json')
+        # stub_request(:get, "https://api.geoapify.com/v1/geocode/search?apiKey=#{Rails.application.credentials.geoapify[:api_key]}&format=json&text=5935%20Dublin%20Blvd%20%23100,%20Colorado%20Springs,%20Colorado%2080923").
+        #   to_return(status: 200, body: stub)
 
         user = User.create(
           first_name: "Kiwi",
@@ -44,5 +44,22 @@ RSpec.describe User, type: :model do
         expect(user.lon).to eq(-104.71769185732973)
       end
     end
-  end 
+
+    describe "set_profile_picture", :vcr do
+      it "sets a profile picture" do 
+        user = User.create(
+            first_name: "Kiwi",
+            last_name: "Bird",
+            street: "5935 Dublin Blvd #100",
+            city: "Colorado Springs",
+            state: "Colorado",
+            zipcode: "80923",
+            is_remote: false,
+            email: "kiwibird@gmail.com"
+        )
+
+        expect(user.profile_picture).to eq("https://images.unsplash.com/photo-1567227278042-f78c52fafae7?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0Nzh8&ixlib=rb-4.0.3")
+      end
+    end
+  end
 end

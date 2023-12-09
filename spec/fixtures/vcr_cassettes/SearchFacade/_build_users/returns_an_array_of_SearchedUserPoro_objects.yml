@@ -1,0 +1,103 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"541c615569bd4531e745a648005b4247"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3e41a010-4aef-43cf-a07e-d1b6a660c960
+      X-Runtime:
+      - '0.314354'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.03, process_action.action_controller;dur=312.96
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1528892952291-009c663ce843?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0NzF8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:31 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/images
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.12
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"7053870862f280d07f9ef15bffaa1414"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a55d68e8-72c0-4aaa-aff0-5bcde7d28dfd
+      X-Runtime:
+      - '0.243771'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, process_action.action_controller;dur=241.76
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1624224971170-2f84fed5eb5e?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0NzJ8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:32 GMT
+recorded_with: VCR 6.2.0
