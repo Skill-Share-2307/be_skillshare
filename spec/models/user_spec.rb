@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
             email: "kiwibird@gmail.com"
         )
 
-        expect(user.profile_picture).to eq("https://images.unsplash.com/photo-1493106819501-66d381c466f1?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzY5MzB8\u0026ixlib=rb-4.0.3")
+        expect(user.profile_picture).to eq("https://images.unsplash.com/photo-1567227278042-f78c52fafae7?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0Nzh8&ixlib=rb-4.0.3")
       end
     end
   end

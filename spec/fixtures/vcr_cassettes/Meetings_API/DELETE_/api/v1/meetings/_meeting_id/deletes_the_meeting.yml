@@ -35,21 +35,21 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"b6d545b1ff094aca687d76d745b8e8ab"
+      - W/"72f23c23f5fb324f739b4c12c60a4ed9"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a6eb45a9-8b03-4481-b085-bbbef30e075d
+      - e04802e3-7593-42d9-8e39-996e24413f6f
       X-Runtime:
-      - '0.315224'
+      - '0.295216'
       Server-Timing:
-      - start_processing.action_controller;dur=0.03, process_action.action_controller;dur=314.02
+      - start_processing.action_controller;dur=0.05, process_action.action_controller;dur=292.94
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"image_url":"https://images.unsplash.com/photo-1494869042583-f6c911f04b4c?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzYwNjh8\u0026ixlib=rb-4.0.3"}'
-  recorded_at: Fri, 08 Dec 2023 22:54:28 GMT
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/flagged/photo-1578025468422-e69c574eb76a?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0ODR8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:44 GMT
 - request:
     method: get
     uri: http://localhost:5000/api/v1/images
@@ -85,19 +85,19 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"2a66f1f55d7c215c997d26498eb17d50"
+      - W/"2a5a9ce4a7e9e264e61d71976dee3520"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4966be7a-ec6a-4694-a969-6bf2a9e25f48
+      - fd69c271-6987-4d1b-96c5-7e4a9ee4e8b1
       X-Runtime:
-      - '0.298451'
+      - '0.342175'
       Server-Timing:
-      - start_processing.action_controller;dur=0.03, process_action.action_controller;dur=297.27
+      - start_processing.action_controller;dur=0.05, process_action.action_controller;dur=340.14
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"image_url":"https://images.unsplash.com/photo-1557296387-5358ad7997bb?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzYwNjl8\u0026ixlib=rb-4.0.3"}'
-  recorded_at: Fri, 08 Dec 2023 22:54:29 GMT
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1531727991582-cfd25ce79613?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0ODR8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:44 GMT
 recorded_with: VCR 6.2.0

@@ -35,21 +35,21 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"281a3a1ad0fb15233d70c9e48fb4ebf4"
+      - W/"41da3ab46d6aeb0c4738ba6a480e80a9"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ade51622-2013-4f82-a850-39e1f021dd72
+      - 9ac3fe45-7ab4-4f7f-b403-cffb1220c8be
       X-Runtime:
-      - '0.305558'
+      - '0.268869'
       Server-Timing:
-      - start_processing.action_controller;dur=0.03, process_action.action_controller;dur=304.06
+      - start_processing.action_controller;dur=0.05, process_action.action_controller;dur=266.59
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"image_url":"https://images.unsplash.com/photo-1611310424006-42cf1e064288?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzYyMjh8\u0026ixlib=rb-4.0.3"}'
-  recorded_at: Fri, 08 Dec 2023 22:57:08 GMT
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixid=M3w1MjcwMTl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDgxNDF8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:55:41 GMT
 - request:
     method: get
     uri: http://localhost:5000/api/v1/images
@@ -85,21 +85,21 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"39c0f4def69719515fd5ba6af1aa14e9"
+      - W/"534a1851201b6dac04a6e1c39c504372"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7e0e5491-e217-4079-bda2-412618583823
+      - 1c32c0c7-acaa-44e9-8ab3-e9c16bafa249
       X-Runtime:
-      - '0.249811'
+      - '0.296983'
       Server-Timing:
-      - start_processing.action_controller;dur=0.05, process_action.action_controller;dur=248.58
+      - start_processing.action_controller;dur=0.05, process_action.action_controller;dur=294.99
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"image_url":"https://images.unsplash.com/flagged/photo-1578025468422-e69c574eb76a?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzYyMjl8\u0026ixlib=rb-4.0.3"}'
-  recorded_at: Fri, 08 Dec 2023 22:57:09 GMT
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1525599428495-0441bd5c67de?ixid=M3w1MjcwMTl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDgxNDF8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:55:41 GMT
 - request:
     method: get
     uri: http://localhost:5000/api/v1/images
@@ -135,19 +135,19 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"85440d96b6220695fc8bda4a281da015"
+      - W/"392072211d031187c944d18117fe4937"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9c64bc52-0159-4c3b-af8a-e237ab65bf0a
+      - a15bf048-a8d6-4b4e-a489-c01563f8fafa
       X-Runtime:
-      - '0.312913'
+      - '0.276110'
       Server-Timing:
-      - start_processing.action_controller;dur=0.03, process_action.action_controller;dur=311.61
+      - start_processing.action_controller;dur=0.06, process_action.action_controller;dur=273.73
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"image_url":"https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzYyMjl8\u0026ixlib=rb-4.0.3"}'
-  recorded_at: Fri, 08 Dec 2023 22:57:09 GMT
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1541715301255-12a4839b424a?ixid=M3w1MjcwMTl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDgxNDF8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:55:41 GMT
 recorded_with: VCR 6.2.0

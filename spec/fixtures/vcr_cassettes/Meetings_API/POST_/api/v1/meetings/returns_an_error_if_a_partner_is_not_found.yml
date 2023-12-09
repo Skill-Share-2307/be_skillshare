@@ -35,19 +35,19 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"f19d07f4e6bf7709c01bd80d8fcc43e5"
+      - W/"12a17f942ed3bcfb74c30f11276d08ba"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 159e00c4-022c-41d1-881b-c4eb9e5f0f47
+      - e8e029c5-63a4-4c0c-87ed-652c3c6f8a48
       X-Runtime:
-      - '0.293501'
+      - '0.256138'
       Server-Timing:
-      - start_processing.action_controller;dur=0.05, process_action.action_controller;dur=292.33
+      - start_processing.action_controller;dur=0.06, process_action.action_controller;dur=254.24
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"image_url":"https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIwNzYwNjZ8\u0026ixlib=rb-4.0.3"}'
-  recorded_at: Fri, 08 Dec 2023 22:54:26 GMT
+      string: '{"data":{"id":null,"type":"image","attributes":{"raw_image":"https://images.unsplash.com/photo-1610186594416-2c7c0131e35d?ixid=M3w1MjcwODR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDIxNDc0ODF8\u0026ixlib=rb-4.0.3"}}}'
+  recorded_at: Sat, 09 Dec 2023 18:44:41 GMT
 recorded_with: VCR 6.2.0
