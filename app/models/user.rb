@@ -30,14 +30,14 @@ class User < ApplicationRecord
       if (!self.lat || !self.lon) && self.street
         address = "#{self.street}, #{self.city}, #{self.state} #{self.zipcode}"
         geocode = GeocodingService.new.geocode_address(address)
-        self.lat = geocode[:results].first[:lat] ? geocode[:results].first[:lat] : nil
-        self.lon = geocode[:results].first[:lon] ? geocode[:results].first[:lon] : nil
+        self.lat = geocode[:results].first[:lat]
+        self.lon = geocode[:results].first[:lon]
       end
     end
 
     def set_profile_picture
       image = ImageService.new.user_image
-      if image[:data][:attributes][:raw_image]
+      if !image[:error]
         self.profile_picture = image[:data][:attributes][:raw_image]
       else
         self.profile_picture = nil
