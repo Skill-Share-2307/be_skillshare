@@ -20,7 +20,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_212901) do
     t.string "purpose"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_ids", default: [], array: true
     t.time "start_time"
     t.time "end_time"
   end
