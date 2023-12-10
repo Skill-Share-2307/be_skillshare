@@ -30,8 +30,8 @@ class User < ApplicationRecord
       if (!self.lat || !self.lon) && self.street
         address = "#{self.street}, #{self.city}, #{self.state} #{self.zipcode}"
         geocode = GeocodingService.new.geocode_address(address)
-        self.lat = geocode[:results].first[:lat]
-        self.lon = geocode[:results].first[:lon]
+        self.lat = geocode[:results].first[:lat] ? geocode[:results].first[:lat] : nil
+        self.lon = geocode[:results].first[:lon] ? geocode[:results].first[:lon] : nil
       end
     end
 

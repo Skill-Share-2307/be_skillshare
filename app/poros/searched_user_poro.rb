@@ -28,6 +28,7 @@ class SearchedUserPoro
 
     # haversine calculation for distance between two decimal coordinate pairs
     def get_distance(searched_user, current_user)
+      return nil if (!searched_user[:lat] || !searched_user[:lon]) || (!current_user[:lat] || !current_user[:lon])
       r = 6371000
       phi_1 = to_radian(searched_user[:lat])
       phi_2 = to_radian(current_user[:lat])
