@@ -5,7 +5,7 @@ Experience Exchange was built with a core focus in mind - that of the ability to
 Experience Exchange is built on a Rails backend leveraging microservices, with a React/TypeScript frontend. The app is deployed via [Heroku](https://dashboard.heroku.com/login) for backend, and [Vercel](https://vercel.com/) for frontend.
 
 <br>Link to [Frontend Repo](https://github.com/experience-exchange-2307/fe_experience_exchange)
-<br>Link to [Backend Repo](https://github.com/experience-exchange-2307/be_image_service)
+<br>Link to [Image Microservice Repo](https://github.com/experience-exchange-2307/be_image_service)
 
 ## Contributors
 **Backend**
