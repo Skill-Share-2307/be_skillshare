@@ -73,6 +73,8 @@ There are two options for testing, either the existing test suite, or manual tes
 - Test suite: `bundle exec rspec`
 - Postman: `rails s`, then test on http://localhost:3000
 
+For full coverage of testing, the [image microservice](https://github.com/experience-exchange-2307/be_image_service) also needs to be running on port 5000. Please see further setup instructions for the microservice in that repo. Without it running, related tests for image generation will fail, though users will still be created with `nil` values in their `profile_picture`.
+
 ## Endpoints
 **Fetch a User - GET /api/v1/users/id**
 <details>
