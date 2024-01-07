@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :street, :city, :state, :zipcode, presence: true
   validates :is_remote, inclusion: { in: [true, false] }
   validates :email, presence: true, uniqueness: true
+
   has_many :user_meetings
   has_many :meetings, through: :user_meetings
   has_many :skills
@@ -26,21 +27,21 @@ class User < ApplicationRecord
 
   private
 
-    def get_coords
-      if (!self.lat || !self.lon) && self.street
-        address = "#{self.street}, #{self.city}, #{self.state} #{self.zipcode}"
-        geocode = GeocodingService.new.geocode_address(address)
-        self.lat = geocode[:results].first[:lat]
-        self.lon = geocode[:results].first[:lon]
-      end
+  def get_coords
+    if (!self.lat || !self.lon) && self.street
+      address = "#{self.street}, #{self.city}, #{self.state} #{self.zipcode}"
+      geocode = GeocodingService.new.geocode_address(address)
+      self.lat = geocode[:results].first[:lat]
+      self.lon = geocode[:results].first[:lon]
     end
+  end
 
-    def set_profile_picture
-      image = ImageService.new.user_image
-      if !image[:error]
-        self.profile_picture = image[:data][:attributes][:raw_image]
-      else
-        self.profile_picture = nil
-      end
+  def set_profile_picture
+    image = ImageService.new.user_image
+    if !image[:error]
+      self.profile_picture = image[:data][:attributes][:raw_image]
+    else
+      self.profile_picture = nil
     end
+  end
 end
