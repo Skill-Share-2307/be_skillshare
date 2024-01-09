@@ -54,6 +54,23 @@ RSpec.describe 'User Meetings API', type: :request do
       end
     end
 
+    it 'will also show the partners name in the meeting data' do
+      user = create(:user)
+      partner = create(:user)
+      new_meeting = create(:meeting, users: [user, partner])
+
+      expect(Meeting.count).to eq(1)
+      expect(UserMeeting.count).to eq(2)
+      UserMeeting.first.update(is_requestor: true)
+
+      get "/api/v1/users/#{user.id}/meetings"
+      expect(response).to have_http_status(200)
+      data = JSON.parse(response.body, symbolize_names: true)
+
+      meeting_data = data[:data]
+      expect(meeting_data[:attributes]).to have_key(:partner_name)
+    end
+
     it 'will return an empty array if user has no meetings' do 
       user = create(:user)
 
