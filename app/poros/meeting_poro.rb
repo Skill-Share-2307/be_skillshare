@@ -10,7 +10,6 @@ class MeetingPoro
               :is_host
 
   def initialize(meeting, user_id)
-    require 'pry';binding.pry
     @id = meeting.id
     @date = meeting.date
     @start_time = meeting.start_time.strftime("%I:%M %p")
@@ -22,10 +21,8 @@ class MeetingPoro
   end
 
   def get_partner(meeting, user_id)
-    require 'pry';binding.pry
     @partner_id = meeting.get_attendee(user_id)
     partner = User.find(@partner_id)
     @partner_name = "#{partner.first_name} #{partner.last_name}"
-    require 'pry';binding.pry
   end
 end
