@@ -54,7 +54,7 @@ RSpec.describe 'User Meetings API', type: :request do
       end
     end
 
-    it 'will also show the partners name in the meeting data' do
+    it 'will also show the partners name in the meeting data', :vcr do
       user = create(:user)
       partner = create(:user)
       new_meeting = create(:meeting, users: [user, partner])
@@ -67,7 +67,7 @@ RSpec.describe 'User Meetings API', type: :request do
       expect(response).to have_http_status(200)
       data = JSON.parse(response.body, symbolize_names: true)
 
-      meeting_data = data[:data]
+      meeting_data = data[:data].first
       expect(meeting_data[:attributes]).to have_key(:partner_name)
     end
 
