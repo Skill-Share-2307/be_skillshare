@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   before_validation :get_coords
   before_create :set_profile_picture
+  # after_save :set_profile_picture
 
   def self.search_for_skills(query)
     skills = query.split(',').map { |skill| skill.strip.downcase }
@@ -37,11 +38,13 @@ class User < ApplicationRecord
   end
 
   def set_profile_picture
-    image = ImageService.new.user_image
+    # image = ImageService.new.user_image
+    image = {error: "a"}
     if !image[:error]
       self.profile_picture = image[:data][:attributes][:raw_image]
     else
       self.profile_picture = nil
+      RetryImageServiceJob.perform_in(15.seconds, self.id)
     end
   end
 end
