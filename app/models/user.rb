@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :skills
 
   before_validation :get_coords
-  before_create :set_profile_picture
+  after_save :set_profile_picture
 
   def self.search_for_skills(query)
     skills = query.split(',').map { |skill| skill.strip.downcase }
@@ -37,11 +37,18 @@ class User < ApplicationRecord
   end
 
   def set_profile_picture
-    image = ImageService.new.user_image
-    if !image[:error]
-      self.profile_picture = image[:data][:attributes][:raw_image]
+    begin
+      image = ImageService.new.user_image
+    rescue Faraday::ConnectionFailed
+      RetryImageServiceJob.perform_in(15.seconds, self.id)
     else
-      self.profile_picture = nil
+      if self.profile_picture
+        return
+      elsif !image[:error]
+        self.update(profile_picture: image[:data][:attributes][:raw_image])
+      else
+        RetryImageServiceJob.perform_in(15.seconds, self.id)
+      end
     end
   end
 end

@@ -15,12 +15,13 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
-    if user.save
-      render json: UserSerializer.new(user), status: :created
+    begin
+      user = User.create!(user_params)
+    rescue ActiveRecord::RecordInvalid => error
+      render json: {error: error.record.errors.full_messages.to_sentence}, status: :unprocessable_entity
     else
-      render json: {error: user.errors.full_messages.to_sentence}, status: :unprocessable_entity
-    end 
+      render json: UserSerializer.new(user), status: :created
+    end
   end
 
 
