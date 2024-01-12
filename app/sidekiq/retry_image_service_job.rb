@@ -5,7 +5,7 @@ class RetryImageServiceJob
     user = User.find(id)
     begin
       image = ImageService.new.user_image
-    rescue Faraday::ConnectionFailed
+    rescue Faraday::ConnectionFailed, JSON::ParserError
       RetryImageServiceJob.perform_in(5.minutes, id)
     else
       if !image[:errors]

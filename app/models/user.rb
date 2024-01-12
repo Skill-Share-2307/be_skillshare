@@ -39,7 +39,7 @@ class User < ApplicationRecord
   def set_profile_picture
     begin
       image = ImageService.new.user_image
-    rescue Faraday::ConnectionFailed
+    rescue Faraday::ConnectionFailed, JSON::ParserError
       RetryImageServiceJob.perform_in(15.seconds, self.id)
     else
       if self.profile_picture
