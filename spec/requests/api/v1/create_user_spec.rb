@@ -5,17 +5,17 @@ RSpec.describe "create user endpoint", type: :request do
     it "creates a user and send back all the user's data" do 
       expect(User.count).to eq(0)
 
-        user_info = {
-          "first_name": "Antoine",
-          "last_name": "Aube",
-          "email": "taken@gmail.com",
-          "street": "12345 street st.",
-          "city": "Salt Lake City",
-          "state": "UT",
-          "zipcode": "12345",
-          "lat": "1.12",
-          "lon": "1.12",
-          "is_remote": "true"
+      user_info = {
+        "first_name": "Antoine",
+        "last_name": "Aube",
+        "email": "taken@gmail.com",
+        "street": "12345 street st.",
+        "city": "Salt Lake City",
+        "state": "UT",
+        "zipcode": "12345",
+        "lat": "1.12",
+        "lon": "1.12",
+        "is_remote": "true"
       }
 
       post "/api/v1/users", params: user_info
