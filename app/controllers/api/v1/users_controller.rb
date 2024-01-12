@@ -22,13 +22,6 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: UserSerializer.new(user), status: :created
     end
-    # user = User.new(user_params)
-    # require 'pry';binding.pry
-    # if user.save
-    #   render json: UserSerializer.new(user), status: :created
-    # else
-    #   render json: {error: user.errors.full_messages.to_sentence}, status: :unprocessable_entity
-    # end 
   end
 
 
