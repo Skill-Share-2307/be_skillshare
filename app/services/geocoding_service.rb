@@ -1,8 +1,7 @@
 class GeocodingService
   def conn
     Faraday.new(
-      url: "https://api.geoapify.com",
-      params: {apiKey: Rails.application.credentials.geoapify[:api_key]}
+      url: Rails.configuration.x.geocoding_service_url
     )
   end
 
@@ -13,6 +12,6 @@ class GeocodingService
 
   def geocode_address(address)
     safe_address = CGI.escape(address)
-    get_url("/v1/geocode/search?text=#{safe_address}&format=json")
+    get_url("/api/v1/coordinates?address=#{safe_address}")
   end
 end
